@@ -4,8 +4,9 @@ import Facebook from 'next-auth/providers/facebook'
 export default NextAuth({
   providers: [
     Facebook({
-      clientId: String(process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_ID),
-      clientSecret: String(process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_SECRET)
+      clientId: String(process.env.FACEBOOK_ID),
+      clientSecret: String(process.env.FACEBOOK_SECRET)
     })
-  ]
+  ],
+  secret: String(process.env.NEXTAUTH_SECRET)
 })
