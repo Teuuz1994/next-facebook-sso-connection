@@ -16,6 +16,15 @@ export default function Home() {
     }
   }
 
+  const tryLogInWithGoogle = async () => {
+    try {
+      await signIn('google')
+    } catch (error) {
+      console.log('Erro ao efetuar login')
+      console.error(error)
+    }
+  }
+
   useEffect(() => {
     if (status === 'authenticated') {
       router.push('/logged')
@@ -25,6 +34,7 @@ export default function Home() {
   return (
     <div>
       <button type="button" onClick={tryToLoginWithFacebook}>login com o Facebook</button>
+      <button type="button" onClick={tryLogInWithGoogle}>login com o Google</button>
     </div>
   )
 }
